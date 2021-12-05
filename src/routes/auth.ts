@@ -78,7 +78,7 @@ router.post("/login", async (req, res) => {
         return res.json({
             errors: [
                 {
-                    msg: "Invalid credentials"
+                    msg: "Invalid password or email"
                 }
             ],
             data: null
