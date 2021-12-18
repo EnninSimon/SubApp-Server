@@ -1,5 +1,7 @@
 import express from 'express';
-import authRoutes from "./routes/auth"
+import authRoutes from "./routes/auth";
+import subsRoutes from "./routes/subs";
+import articlesRoutes from "./routes/articles";
 import mongoose from 'mongoose';
 import dotenv from "dotenv";
 import cors from 'cors';
@@ -18,9 +20,11 @@ mongoose.connect(
         app.use(express.json())
         app.use(cors());
         app.use("/auth", authRoutes)
+        app.use("/subs", subsRoutes)
+        app.use("/articles", articlesRoutes)
 
-        app.listen(8080, () => {
-            console.log(`Now listening to port 8080`);
+        app.listen(8081, () => {
+            console.log(`Now listening to port 8081`);
         })
     })
     .catch((error) => {
